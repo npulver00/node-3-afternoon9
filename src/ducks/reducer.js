@@ -95,9 +95,15 @@ export function getSwag() {
 }
 
 export function searchSwag( category ) {
+  console.log("cat", category)
   return {
     type: SEARCH_SWAG,
-    payload: axios.get( `${URL.search}?category=${category}` ).then( response => response.data )
+    payload: axios.get( `${URL.search}?category=${category}` ).then( response => {
+      console.log("resp", response.data)
+      return response.data
+      
+    })
+    
   };
 }
 
